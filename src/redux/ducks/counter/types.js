@@ -1,0 +1,9 @@
+const NAMESPACE = 'counter';
+const INCREMENT = `${NAMESPACE}/INCREMENT`;
+const DECREMENT = `${NAMESPACE}/DECREMENT`;
+
+export default {
+  NAMESPACE,
+  INCREMENT,
+  DECREMENT,
+};

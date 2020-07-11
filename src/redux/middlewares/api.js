@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API } from '../actions';
+import { API } from '../ducks/utils';
 
 export const BASE_UNSPLASH_URI = 'https://api.unsplash.com';
 
