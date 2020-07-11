@@ -1,15 +1,21 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import './styles/main.scss';
+import configureStore from './redux/configureStore';
+
+import Routes from './Routes';
+
+const store = configureStore();
 
 const appRoot = document.getElementById('root');
 const App = () => {
-	render(
-		<div className="h-screen w-screen shadow-2xl bg-gray-600">
-			<h1>Hola!!</h1>
-		</div>,
-		appRoot
-	);
+  render(
+    <Provider store={store}>
+      <Routes />
+    </Provider>,
+    appRoot,
+  );
 };
 
 App();
