@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { decrementAction, incrementAction } from '../redux/actions/counter';
+import { getPhotoAction } from '../redux/actions/photos';
 
 const Counter = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter, shallowEqual);
+  useEffect(() => {
+    dispatch(getPhotoAction());
+  });
   return (
     <div>
       {counter.count}

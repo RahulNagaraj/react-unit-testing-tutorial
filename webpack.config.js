@@ -1,5 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  const updatedPrev = { ...prev };
+  updatedPrev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return updatedPrev;
+}, {});
 
 module.exports = {
   entry: [
@@ -53,5 +61,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin(envKeys),
   ],
 };
