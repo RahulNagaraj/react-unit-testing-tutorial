@@ -8,7 +8,7 @@ const Counter = () => {
   const count = useSelector((state) => counterSelectors.getCount(state), shallowEqual);
   useEffect(() => {
     dispatch(photoActions.fetchPhotos());
-  });
+  }, [count]);
   return (
     <div>
       {count}

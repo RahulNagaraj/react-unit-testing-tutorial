@@ -1,14 +1,21 @@
 import types from './types';
-import { API } from '../utils';
 
 const fetchPhotos = () => ({
-  [API]: {
-    types: types.FETCH_PHOTOS_TYPES,
-    method: 'GET',
-    endpoint: 'photos',
-  },
+  type: types.FETCH_PHOTOS_REQUEST,
+});
+
+const fetchPhotosSuccess = (payload) => ({
+  type: types.FETCH_PHOTO_SUCCESS,
+  payload,
+});
+
+const fetchPhotosFailure = (error) => ({
+  type: types.FETCH_PHOTO_FAILURE,
+  error,
 });
 
 export default {
   fetchPhotos,
+  fetchPhotosSuccess,
+  fetchPhotosFailure,
 };

@@ -18,17 +18,16 @@ const photoReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        photos: action.response,
+        photos: action.payload,
         error: null,
       };
     case photoTypes.FETCH_PHOTO_FAILURE:
       return {
         ...state,
         isFetching: false,
-        photos: action.response,
         error: {
-          errorMessage: action.error.message,
-          errorCode: action.error.code,
+          errorMessage: action.error.data.errors,
+          errorCode: action.error.status,
         },
       };
     default:
